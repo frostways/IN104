@@ -7,11 +7,99 @@
 #include <string.h>
 #include <stdlib.h>
 #include "wave.h"
+#include "stft.h"
 #define TRUE 1 
 #define FALSE 0
 
-// WAVE header structure
 
+
+// WAVE header structure
+// Copy from https://github.com/Steboss/music_retrieval/tree/master/stft
+/*
+#include <stdio.h>
+#include <stdlib.h>
+#include <complex.h>
+#include <fftw3.h>
+#include <math.h>
+
+#define PI 3.14159265
+
+double hamming(int windowLength, double *buffer){
+    for(int i=0; i<windowLength; i++){
+        buffer[i] = 0.54 - 0.46*cos((2*PI*i)/(windowLength-1.0));
+    }
+    return *buffer;
+
+}
+
+double* stft(double *wav_data, int samples, int windowSize, int hop_size,\
+             double *magnitude, int sample_freq, int length)
+{
+    printf("Initialization of parameters...\n");
+    int i,counter ;
+    counter = 0 ;
+    double hamming_result[windowSize];
+    double summa;
+    fftw_complex *stft_data, *fft_result, *storage;
+    stft_data = (fftw_complex*)(fftw_malloc(sizeof(fftw_complex)*(windowSize)));
+    fft_result= (fftw_complex*)(fftw_malloc(sizeof(fftw_complex)*(windowSize)));
+    storage = (fftw_complex*)(fftw_malloc(sizeof(fftw_complex)*(samples)));
+    printf("Total length of storage %d\n", (samples));
+    fftw_plan plan_forward;
+    plan_forward = fftw_plan_dft_1d(windowSize,stft_data,fft_result, FFTW_FORWARD,FFTW_ESTIMATE);
+    printf("Creation of a hamming window...");
+    hamming(windowSize, hamming_result);
+    for (i=0; i<windowSize; i++)
+    {
+        summa+=hamming_result[i]*hamming_result[i];
+    }
+
+    int chunkPosition = 0;
+    int readIndex ;
+    int n_elem_read = 0 ;
+
+    while (counter < samples- windowSize ){
+
+        for(i=0; i<windowSize; i++){
+
+            readIndex = chunkPosition + i;
+            stft_data[i] = wav_data[readIndex]*hamming_result[i];
+            n_elem_read+=1;
+        }
+        fftw_execute(plan_forward);
+        for (i=0; i<windowSize/2 +1 ;i++)
+        {
+            storage[counter] = fft_result[i];
+            counter+=1;
+
+        }
+
+        chunkPosition += hop_size/2;
+    }
+    printf("%d\n", counter);
+
+    for (i=0; i<counter; i++)
+    {
+        storage[i] /= (windowSize/2);
+    }
+    printf("Magnitude\n");
+
+    for (i=0; i< counter; i++)
+    {
+        magnitude[i] = cabs(storage[i]);
+    }
+
+    fftw_destroy_plan(plan_forward);
+    fftw_free(stft_data);
+    fftw_free(fft_result);
+    fftw_free(storage);
+
+    //free(hamming_result);
+    return magnitude;
+}
+
+
+*/
 unsigned char buffer4[4];
 unsigned char buffer2[2];
 
@@ -23,7 +111,7 @@ char* seconds_to_time(float seconds);
  struct HEADER header;
 
 int main(int argc, char **argv) {
-
+    double wav_data[1000];
  filename = (char*) malloc(sizeof(char) * 1024);
  if (filename == NULL) {
    printf("Error in mallocn");
@@ -39,7 +127,7 @@ int main(int argc, char **argv) {
     // get filename from command line
     if (argc < 2) {
       printf("No wave file specifiedn");
-      return;
+      return 0;
     }
     
     strcat(filename, "/");
@@ -250,7 +338,36 @@ int main(int argc, char **argv) {
                     break;
                 }
 
-            } // 	for (i =1; i <= num_samples; i++) {
+            }
+            for (i =1; i <= num_samples; i++) {
+                read = fread(data_buffer, sizeof(data_buffer), 1, ptr);
+                if (read == 1) {
+
+                    // dump the data read
+                    unsigned int  xchannels = 0;
+                    int data_in_channel = 0;
+                    int offset = 0; // move the offset for every iteration in the loop below
+                    for (xchannels = 0; xchannels < header.channels; xchannels ++ ) {
+                        // convert data from little endian to big endian based on bytes in each channel sample
+                        if (bytes_in_each_channel == 4) {
+                            data_in_channel = (data_buffer[offset] & 0x00ff) |
+                                              ((data_buffer[offset + 1] & 0x00ff) <<8) |
+                                              ((data_buffer[offset + 2] & 0x00ff) <<16) |
+                                              (data_buffer[offset + 3]<<24);
+                        }
+                        else if (bytes_in_each_channel == 2) {
+                            data_in_channel = (data_buffer[offset] & 0x00ff) |
+                                              (data_buffer[offset + 1] << 8);
+                        }
+                        else if (bytes_in_each_channel == 1) {
+                            data_in_channel = data_buffer[offset] & 0x00ff;
+                            data_in_channel -= 128; //in wave, 8-bit are unsigned, so shifting to signed
+                        }
+
+                        offset += bytes_in_each_channel;
+                        wav_data[i]=data_in_channel;
+
+            }
 
         } // 	if (size_is_correct) { 
 
@@ -260,6 +377,21 @@ int main(int argc, char **argv) {
  printf("Closing file..n");
  fclose(ptr);
 
+
+    int windowSize = 8;
+    int hop_size = 2;
+    double magnitude[16];
+    int sample_freq = 2;
+    int length = 32;
+
+
+
+    stft(&wav_data[0], num_samples, windowSize, hop_size,&magnitude[0],sample_freq, length);
+
+    for (int i = 0; i < 16; i++)
+    {
+        printf("%f\n", magnitude[i]);
+    }
   // cleanup before quitting
  free(filename);
  return 0;

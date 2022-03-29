@@ -82,28 +82,3 @@ double* stft(double *wav_data, int samples, int windowSize, int hop_size,\
   return magnitude;
 }
 
-int main()
-{
-  double wav_data[32];
-  int samples = 16;
-  int windowSize = 8;
-  int hop_size = 2;
-  double magnitude[16];
-  int sample_freq = 2;
-  int length = 32;
-
-  for (int i = 0; i < 32; i++)
-  {
-     wav_data[i] = i * 2.5;
-  }
-
-  stft(&wav_data[0], samples, windowSize, hop_size,&magnitude[0],sample_freq, length);
-  
-  for (int i = 0; i < 16; i++)
-  {
-    printf("%f\n", magnitude[i]);
-  }
-
-  return 0; 
-}
-
