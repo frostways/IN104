@@ -1,4 +1,4 @@
-# Install script for directory: /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104
+# Install script for directory: /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/cmake-build-debug
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

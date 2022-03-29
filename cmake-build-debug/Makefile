@@ -48,7 +48,7 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104
+CMAKE_SOURCE_DIR = /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/cmake-build-debug
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/cmake-build-debug
@@ -110,73 +110,6 @@ depend:
 	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named IN104
-
-# Build rule for target.
-IN104: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 IN104
-.PHONY : IN104
-
-# fast build rule for target.
-IN104/fast:
-	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/build
-.PHONY : IN104/fast
-
-IN104-master/audio-read/wave.o: IN104-master/audio-read/wave.c.o
-
-.PHONY : IN104-master/audio-read/wave.o
-
-# target to build an object file
-IN104-master/audio-read/wave.c.o:
-	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/IN104-master/audio-read/wave.c.o
-.PHONY : IN104-master/audio-read/wave.c.o
-
-IN104-master/audio-read/wave.i: IN104-master/audio-read/wave.c.i
-
-.PHONY : IN104-master/audio-read/wave.i
-
-# target to preprocess a source file
-IN104-master/audio-read/wave.c.i:
-	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/IN104-master/audio-read/wave.c.i
-.PHONY : IN104-master/audio-read/wave.c.i
-
-IN104-master/audio-read/wave.s: IN104-master/audio-read/wave.c.s
-
-.PHONY : IN104-master/audio-read/wave.s
-
-# target to generate assembly for a file
-IN104-master/audio-read/wave.c.s:
-	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/IN104-master/audio-read/wave.c.s
-.PHONY : IN104-master/audio-read/wave.c.s
-
-IN104-master/features-encoding/stft.o: IN104-master/features-encoding/stft.c.o
-
-.PHONY : IN104-master/features-encoding/stft.o
-
-# target to build an object file
-IN104-master/features-encoding/stft.c.o:
-	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/IN104-master/features-encoding/stft.c.o
-.PHONY : IN104-master/features-encoding/stft.c.o
-
-IN104-master/features-encoding/stft.i: IN104-master/features-encoding/stft.c.i
-
-.PHONY : IN104-master/features-encoding/stft.i
-
-# target to preprocess a source file
-IN104-master/features-encoding/stft.c.i:
-	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/IN104-master/features-encoding/stft.c.i
-.PHONY : IN104-master/features-encoding/stft.c.i
-
-IN104-master/features-encoding/stft.s: IN104-master/features-encoding/stft.c.s
-
-.PHONY : IN104-master/features-encoding/stft.s
-
-# target to generate assembly for a file
-IN104-master/features-encoding/stft.c.s:
-	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/IN104-master/features-encoding/stft.c.s
-.PHONY : IN104-master/features-encoding/stft.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -185,13 +118,6 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... IN104"
-	@echo "... IN104-master/audio-read/wave.o"
-	@echo "... IN104-master/audio-read/wave.i"
-	@echo "... IN104-master/audio-read/wave.s"
-	@echo "... IN104-master/features-encoding/stft.o"
-	@echo "... IN104-master/features-encoding/stft.i"
-	@echo "... IN104-master/features-encoding/stft.s"
 .PHONY : help
 
 
