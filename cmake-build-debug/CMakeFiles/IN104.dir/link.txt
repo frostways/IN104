@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/IN104.dir/IN104-master/audio-read/wave.c.o CMakeFiles/IN104.dir/IN104-master/features-encoding/stft.c.o  -o IN104 
