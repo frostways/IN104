@@ -22,7 +22,7 @@ char* seconds_to_time(float seconds);
  char *filename;
  struct HEADER header;
 
-int main(int argc, char **argv) {
+long readWave(char * path, int* vect) {
 
  filename = (char*) malloc(sizeof(char) * 1024);
  if (filename == NULL) {
@@ -37,13 +37,9 @@ int main(int argc, char **argv) {
     strcpy(filename, cwd);
 
     // get filename from command line
-    if (argc < 2) {
-      printf("No wave file specifiedn");
-      return 0;
-    }
-    
+
     strcat(filename, "/");
-    strcat(filename, argv[1]);
+    strcat(filename, path);
     printf("%sn", filename);
  }
 
@@ -158,6 +154,8 @@ int main(int argc, char **argv) {
  long num_samples = (8 * header.data_size) / (header.channels * header.bits_per_sample);
  printf("Number of samples:%lu n", num_samples);
 
+ vect  = malloc(num_samples * sizeof (int));
+
  long size_of_each_sample = (header.channels * header.bits_per_sample) / 8;
  printf("Size of each sample:%ld bytesn", size_of_each_sample);
 
@@ -206,7 +204,7 @@ int main(int argc, char **argv) {
             }					
 
             printf("nn.Valid range for data values : %ld to %ld n", low_limit, high_limit);
-            for (i =1; i <= 10; i++) {
+            for (i =1; i <= num_samples; i++) {
                 printf("==========Sample %ld / %ld=============n", i, num_samples);
                 read = fread(data_buffer, sizeof(data_buffer), 1, ptr);
                 if (read == 1) {
@@ -235,6 +233,7 @@ int main(int argc, char **argv) {
 
                         offset += bytes_in_each_channel;		
                         printf("%d ", data_in_channel);
+                        vect[i]  = data_in_channel;
 
                         // check if value was in range
                         if (data_in_channel < low_limit || data_in_channel > high_limit)
@@ -262,7 +261,7 @@ int main(int argc, char **argv) {
 
   // cleanup before quitting
  free(filename);
- return 0;
+ return num_samples;
 
 }
 
