@@ -6,18 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/stft.c
-stdio.h
--
-stdlib.h
--
-complex.h
--
-fftw3.h
--
-math.h
--
-
 /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/stft.h
 
 /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/wave.c

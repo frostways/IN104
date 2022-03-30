@@ -22,7 +22,7 @@ char *filename;
 struct HEADER header;
 
 int main(int argc, char **argv) {
-    double wav_data[1000];
+    double wav_data[1000000];
     filename = (char *) malloc(sizeof(char) * 1024);
     if (filename == NULL) {
         printf("Error in mallocn");
@@ -256,7 +256,7 @@ int main(int argc, char **argv) {
                         unsigned int xchannels = 0;
                         int data_in_channel = 0;
                         int offset = 0; // move the offset for every iteration in the loop below
-                        for (xchannels = 0; xchannels < header.channels; xchannels++) {
+                        for (xchannels = 0; xchannels < 1; xchannels++) {
                             // convert data from little endian to big endian based on bytes in each channel sample
                             if (bytes_in_each_channel == 4) {
                                 data_in_channel = (data_buffer[offset] & 0x00ff) |
