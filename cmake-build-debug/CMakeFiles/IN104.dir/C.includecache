@@ -8,6 +8,8 @@
 
 /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/stft.h
 
+/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/utiles.h
+
 /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/wave.c
 unistd.h
 -
@@ -21,6 +23,8 @@ wave.h
 /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/wave.h
 stft.h
 /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/stft.h
+utiles.h
+/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/utiles.h
 
 /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/wave.h
 

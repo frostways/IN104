@@ -150,6 +150,33 @@ stft.c.s:
 	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/stft.c.s
 .PHONY : stft.c.s
 
+utiles.o: utiles.c.o
+
+.PHONY : utiles.o
+
+# target to build an object file
+utiles.c.o:
+	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/utiles.c.o
+.PHONY : utiles.c.o
+
+utiles.i: utiles.c.i
+
+.PHONY : utiles.i
+
+# target to preprocess a source file
+utiles.c.i:
+	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/utiles.c.i
+.PHONY : utiles.c.i
+
+utiles.s: utiles.c.s
+
+.PHONY : utiles.s
+
+# target to generate assembly for a file
+utiles.c.s:
+	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/utiles.c.s
+.PHONY : utiles.c.s
+
 wave.o: wave.c.o
 
 .PHONY : wave.o
@@ -189,6 +216,9 @@ help:
 	@echo "... stft.o"
 	@echo "... stft.i"
 	@echo "... stft.s"
+	@echo "... utiles.o"
+	@echo "... utiles.i"
+	@echo "... utiles.s"
 	@echo "... wave.o"
 	@echo "... wave.i"
 	@echo "... wave.s"

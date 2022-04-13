@@ -8,6 +8,7 @@
 #include <stdlib.h>
 #include "wave.h"
 #include "stft.h"
+#include "utiles.h"
 #define TRUE 1
 #define FALSE 0
 
@@ -285,20 +286,36 @@ int main(int argc, char **argv) {
             fclose(ptr);
 
 
-            int windowSize = 8;
-            int hop_size = 2;
-            double magnitude[16];
-            int sample_freq = 2;
-            int length = 32;
-
-
-            stft(&wav_data[0], num_samples, windowSize, hop_size, &magnitude[0], sample_freq, length);
-
-            for (int i = 0; i < 16; i++) {
-                printf("%f\n", magnitude[i]);
-            }
+            int windowSize = 512;
+            int hop_size = 512;
+            int sample_freq = 22050;
+            int cols = (int) ((num_samples / (windowSize / 2)) - 1);
+            int rows = (int) (windowSize / 2) + 1;
+            double *magnitude = malloc(sizeof(double) * cols * rows);
+//            printf("cols: %d, rows: %d\n", cols, rows);
+            stft(&wav_data[0], cols, windowSize, hop_size, &magnitude[0], sample_freq, num_samples);
+//            printf("Magnitude :\n");
+//            for (i = 0; i < 16; i++) {
+//                printf("%f ", magnitude[i]);
+//            }
+            double *caract = malloc(sizeof(double) * rows * 2);
+            getcaract(magnitude, cols, rows, caract);
+            // print caract
+//            printf("Caractéristiques :\n");
+//            for (i = 0; i < 16; i++) {
+//                printf("%f ", caract[i]);
+//            }
             // cleanup before quitting
             free(filename);
+            free(magnitude);
+            // save caract to csv
+            FILE *fp;
+            fp = fopen("caract.csv", "w");
+            for (i = 0; i < 2 * rows; i++) {
+                fprintf(fp, "%f\n", caract[i]);
+            }
+            fclose(fp);
+            free(caract);
             return 0;
 
         }
@@ -311,29 +328,29 @@ int main(int argc, char **argv) {
  *	seconds - seconds value
  * Returns: hms - formatted string
  **/
-        char* seconds_to_time(float raw_seconds) {
-            char *hms;
-            int hours, hours_residue, minutes, seconds, milliseconds;
-            hms = (char*) malloc(100);
+    char *seconds_to_time(float raw_seconds) {
+        char *hms;
+        int hours, hours_residue, minutes, seconds, milliseconds;
+        hms = (char *) malloc(100);
 
-            sprintf(hms, "%f", raw_seconds);
+        sprintf(hms, "%f", raw_seconds);
 
-            hours = (int) raw_seconds/3600;
-            hours_residue = (int) raw_seconds % 3600;
-            minutes = hours_residue/60;
-            seconds = hours_residue % 60;
-            milliseconds = 0;
+        hours = (int) raw_seconds / 3600;
+        hours_residue = (int) raw_seconds % 3600;
+        minutes = hours_residue / 60;
+        seconds = hours_residue % 60;
+        milliseconds = 0;
 
-            // get the decimal part of raw_seconds to get milliseconds
-            char *pos;
-            pos = strchr(hms, '.');
-            int ipos = (int) (pos - hms);
-            char decimalpart[15];
-            memset(decimalpart, ' ', sizeof(decimalpart));
-            strncpy(decimalpart, &hms[ipos+1], 3);
-            milliseconds = atoi(decimalpart);
+        // get the decimal part of raw_seconds to get milliseconds
+        char *pos;
+        pos = strchr(hms, '.');
+        int ipos = (int) (pos - hms);
+        char decimalpart[15];
+        memset(decimalpart, ' ', sizeof(decimalpart));
+        strncpy(decimalpart, &hms[ipos + 1], 3);
+        milliseconds = atoi(decimalpart);
 
 
-            sprintf(hms, "%d:%d:%d.%d", hours, minutes, seconds, milliseconds);
-            return hms;
-        }
+        sprintf(hms, "%d:%d:%d.%d", hours, minutes, seconds, milliseconds);
+        return hms;
+    }

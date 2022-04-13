@@ -3,7 +3,11 @@
 
 CMakeFiles/IN104.dir/stft.c.o
  /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/stft.c
+CMakeFiles/IN104.dir/utiles.c.o
+ /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/utiles.c
+ /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/utiles.h
 CMakeFiles/IN104.dir/wave.c.o
  /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/stft.h
+ /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/utiles.h
  /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/wave.c
  /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/wave.h

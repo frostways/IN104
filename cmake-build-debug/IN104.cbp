@@ -82,6 +82,12 @@
 		<Unit filename="/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/stft.h">
 			<Option target="IN104"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/utiles.c">
+			<Option target="IN104"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/utiles.h">
+			<Option target="IN104"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/wave.c">
 			<Option target="IN104"/>
 		</Unit>

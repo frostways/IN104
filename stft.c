@@ -33,6 +33,7 @@ double* stft(double *wav_data, int samples, int windowSize, int hop_size,\
   plan_forward = fftw_plan_dft_1d(windowSize,stft_data,fft_result, FFTW_FORWARD,FFTW_ESTIMATE);
   printf("Creation of a hamming window...");
   hamming(windowSize, hamming_result);
+
   for (i=0; i<windowSize; i++)
   {
     summa+=hamming_result[i]*hamming_result[i];
@@ -81,4 +82,3 @@ double* stft(double *wav_data, int samples, int windowSize, int hop_size,\
   //free(hamming_result);
   return magnitude;
 }
-

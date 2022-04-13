@@ -3,7 +3,11 @@
 
 CMakeFiles/IN104.dir/stft.c.o: ../stft.c
 
+CMakeFiles/IN104.dir/utiles.c.o: ../utiles.c
+CMakeFiles/IN104.dir/utiles.c.o: ../utiles.h
+
 CMakeFiles/IN104.dir/wave.c.o: ../stft.h
+CMakeFiles/IN104.dir/wave.c.o: ../utiles.h
 CMakeFiles/IN104.dir/wave.c.o: ../wave.c
 CMakeFiles/IN104.dir/wave.c.o: ../wave.h
 
