@@ -1,7 +1,6 @@
 // Copy from https://github.com/Steboss/music_retrieval/tree/master/stft
 
 #include <stdio.h>
-#include <stdlib.h>
 #include <complex.h>
 #include <fftw3.h>
 #include <math.h>
@@ -19,7 +18,7 @@ double hamming(int windowLength, double *buffer){
 double* stft(double *wav_data, int samples, int windowSize, int hop_size,\
              double *magnitude, int sample_freq, int length)
 {
-  printf("Initialization of parameters...\n");
+  // printf("Initialization of parameters...\n");
   int i,counter ;
   counter = 0 ;
   double hamming_result[windowSize];
@@ -28,10 +27,10 @@ double* stft(double *wav_data, int samples, int windowSize, int hop_size,\
   stft_data = (fftw_complex*)(fftw_malloc(sizeof(fftw_complex)*(windowSize)));
   fft_result= (fftw_complex*)(fftw_malloc(sizeof(fftw_complex)*(windowSize)));
   storage = (fftw_complex*)(fftw_malloc(sizeof(fftw_complex)*(samples)));
-  printf("Total length of storage %d\n", (samples));
+  // printf("Total length of storage %d\n", (samples));
   fftw_plan plan_forward;
   plan_forward = fftw_plan_dft_1d(windowSize,stft_data,fft_result, FFTW_FORWARD,FFTW_ESTIMATE);
-  printf("Creation of a hamming window...");
+  // printf("Creation of a hamming window...");
   hamming(windowSize, hamming_result);
 
   for (i=0; i<windowSize; i++)
@@ -61,19 +60,16 @@ double* stft(double *wav_data, int samples, int windowSize, int hop_size,\
 
     chunkPosition += hop_size/2;
   }
-  printf("%d\n", counter);
 
   for (i=0; i<counter; i++)
   {
     storage[i] /= (windowSize/2);
   }
-  printf("Magnitude\n");
-
   for (i=0; i< counter; i++)
   {
     magnitude[i] = cabs(storage[i]);
   }
-
+    printf("%d\n", counter);
   fftw_destroy_plan(plan_forward);
   fftw_free(stft_data);
   fftw_free(fft_result);

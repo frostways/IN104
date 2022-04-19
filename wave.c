@@ -22,31 +22,8 @@ FILE *ptr;
 char *filename;
 struct HEADER header;
 
-int main(int argc, char **argv) {
+int readfile(char* filename,double* cara) {
     double wav_data[1000000];
-    filename = (char *) malloc(sizeof(char) * 1024);
-    if (filename == NULL) {
-        printf("Error in mallocn");
-        exit(1);
-    }
-
-    // get file path
-    char cwd[1024];
-    if (getcwd(cwd, sizeof(cwd)) != NULL) {
-
-        strcpy(filename, cwd);
-
-        // get filename from command line
-        if (argc < 2) {
-            printf("No wave file specifiedn");
-            return 0;
-        }
-
-        strcat(filename, "/");
-        strcat(filename, argv[1]);
-        printf("%sn", filename);
-    }
-
     // open file
     printf("Opening  file..n");
     ptr = fopen(filename, "rb");
@@ -171,23 +148,19 @@ int main(int argc, char **argv) {
 
     // read each sample from data chunk if PCM
     if (header.format_type == 1) { // PCM
-        printf("Dump sample data? Y/N?");
-        char c = 'n';
-        scanf("%c", &c);
-        if (c == 'Y' || c == 'y') {
-            long i = 0;
-            char data_buffer[size_of_each_sample];
-            int size_is_correct = TRUE;
+        long i = 0;
+        char data_buffer[size_of_each_sample];
+        int size_is_correct = TRUE;
 
-            // make sure that the bytes-per-sample is completely divisible by num.of channels
-            long bytes_in_each_channel = (size_of_each_sample / header.channels);
-            if ((bytes_in_each_channel * header.channels) != size_of_each_sample) {
-                printf("Error: %ld x %ud <> %ldn", bytes_in_each_channel, header.channels, size_of_each_sample);
-                size_is_correct = FALSE;
-            }
+        // make sure that the bytes-per-sample is completely divisible by num.of channels
+        long bytes_in_each_channel = (size_of_each_sample / header.channels);
+        if ((bytes_in_each_channel * header.channels) != size_of_each_sample) {
+            printf("Error: %ld x %ud <> %ldn", bytes_in_each_channel, header.channels, size_of_each_sample);
+            size_is_correct = FALSE;
+        }
 
-            if (size_is_correct) {
-                // the valid amplitude range for values based on the bits per sample
+        if (size_is_correct) {
+            // the valid amplitude range for values based on the bits per sample
                 long low_limit = 0l;
                 long high_limit = 0l;
 
@@ -292,33 +265,16 @@ int main(int argc, char **argv) {
             int cols = (int) ((num_samples / (windowSize / 2)) - 1);
             int rows = (int) (windowSize / 2) + 1;
             double *magnitude = malloc(sizeof(double) * cols * rows);
-//            printf("cols: %d, rows: %d\n", cols, rows);
-            stft(&wav_data[0], cols, windowSize, hop_size, &magnitude[0], sample_freq, num_samples);
-//            printf("Magnitude :\n");
-//            for (i = 0; i < 16; i++) {
-//                printf("%f ", magnitude[i]);
-//            }
-            double *caract = malloc(sizeof(double) * rows * 2);
-            getcaract(magnitude, cols, rows, caract);
-            // print caract
-//            printf("Caractéristiques :\n");
-//            for (i = 0; i < 16; i++) {
-//                printf("%f ", caract[i]);
-//            }
-            // cleanup before quitting
-            free(filename);
-            free(magnitude);
-            // save caract to csv
-            FILE *fp;
-            fp = fopen("caract.csv", "w");
-            for (i = 0; i < 2 * rows; i++) {
-                fprintf(fp, "%f\n", caract[i]);
+            // initialize the magnitude matrix
+            for (int i = 0; i < cols * rows; i++) {
+                magnitude[i] = 0;
             }
-            fclose(fp);
-            free(caract);
+            stft(&wav_data[0], cols, windowSize, hop_size, &magnitude[0], sample_freq, num_samples);
+            getcaract(magnitude, cols, rows, cara);
+            // cleanup before quitting
+            free(magnitude);
+            printf("Done.n");
             return 0;
-
-        }
     }
 }
 

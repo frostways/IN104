@@ -123,6 +123,33 @@ IN104/fast:
 	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/build
 .PHONY : IN104/fast
 
+savetocsv.o: savetocsv.c.o
+
+.PHONY : savetocsv.o
+
+# target to build an object file
+savetocsv.c.o:
+	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/savetocsv.c.o
+.PHONY : savetocsv.c.o
+
+savetocsv.i: savetocsv.c.i
+
+.PHONY : savetocsv.i
+
+# target to preprocess a source file
+savetocsv.c.i:
+	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/savetocsv.c.i
+.PHONY : savetocsv.c.i
+
+savetocsv.s: savetocsv.c.s
+
+.PHONY : savetocsv.s
+
+# target to generate assembly for a file
+savetocsv.c.s:
+	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/savetocsv.c.s
+.PHONY : savetocsv.c.s
+
 stft.o: stft.c.o
 
 .PHONY : stft.o
@@ -213,6 +240,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... IN104"
+	@echo "... savetocsv.o"
+	@echo "... savetocsv.i"
+	@echo "... savetocsv.s"
 	@echo "... stft.o"
 	@echo "... stft.i"
 	@echo "... stft.s"

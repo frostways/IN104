@@ -6,7 +6,7 @@
 #include <math.h>
 #include <stdio.h>
 
-void getcaract(double * table, int c, int l,double * caract){
+void getcaract(double * table, int c, int l,double* cara) {
     double moy,ecart;
     for (int i = 0; i < l; i++) {
         moy = 0;
@@ -15,11 +15,11 @@ void getcaract(double * table, int c, int l,double * caract){
             moy += table[i*c+j];
         }
         moy = moy/c;
-        caract[2*i] = moy;
+        cara[2*i] = moy;
         for (int j = 0; j < c; j++) {
             ecart += pow(table[i*c+j]-moy,2);
         }
         ecart = sqrt(ecart/c);
-        caract[2*i+1] = ecart;
+        cara[2*i+1] = ecart;
     }
 }
