@@ -282,7 +282,7 @@ int readfile(char* filename,double* cara) {
             for(int j = 0; j < 3; j++){
                 printf("%f: ", cara[j]);
             }
-            printf('\n');
+            printf("\n");
             // cleanup before quitting
             free(magnitude);
             printf("Done.n");

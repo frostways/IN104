@@ -21,23 +21,23 @@ int main(int argc, char **argv) {
     // initialize our caracteristics
     double * cara = malloc(sizeof(double) * 514);
 
-    for(int g = 0 ; g < 1 ; g++) {
-        for (int i=0 ; i < 1; i++){
+    for(int g = 0 ; g < nb_genre ; g++) {
+        for (int i=0 ; i < 100; i++){
             char path[1000];
             if (i < 10){
                 sprintf(path, "./%s/%s/%s.0000%d.wav",argv[1], genres[g],genres[g], i);
                 readfile(path, cara);
                 // save the data
-                fprintf(csv,"%d", g);
+                fprintf(csv,"%d, ", g);
                 for (int j = 0; j < 514; j++) {
-                    fprintf(csv, "%f", cara[j]);
+                    fprintf(csv, "%f, ", cara[j]);
                 }
                 fprintf(csv, "\n");
             }
             else {
                 sprintf(path, "./%s/%s/%s.000%d.wav",argv[1], genres[g], genres[g], i);
                 readfile(path, cara);
-                fprintf(csv,"%d", g);
+                fprintf(csv,"%d, ", g);
                 for (int j = 0; j < 512; j++) {
                     fprintf(csv, "%f, ", cara[j]);
                 }
