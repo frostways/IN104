@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
         return 1;
     }
     // initialize our caracteristics
-    double * cara = malloc(sizeof(double) * 515);
+    double * cara = malloc(sizeof(double) * 514);
 
     for(int g = 0 ; g < 1 ; g++) {
         for (int i=0 ; i < 1; i++){
@@ -29,7 +29,7 @@ int main(int argc, char **argv) {
                 readfile(path, cara);
                 // save the data
                 fprintf(csv,"%d", g);
-                for (int j = 0; j < 512; j++) {
+                for (int j = 0; j < 514; j++) {
                     fprintf(csv, "%f", cara[j]);
                 }
                 fprintf(csv, "\n");

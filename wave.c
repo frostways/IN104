@@ -272,8 +272,8 @@ int readfile(char* filename,double* cara) {
             stft(&wav_data[0], cols, windowSize, hop_size, &magnitude[0], sample_freq, num_samples);
             // print first 16 rows of magnitude matrix
             printf("magnitude ");
-            for (int i = 0; i < 16; i++) {
-                printf("%f: ", magnitude[i]);
+            for (int j = 0; j < 50; j++) {
+                printf("%f: ", magnitude[j]);
             }
             printf("\n");
             getcaract(magnitude, cols, rows, cara);
