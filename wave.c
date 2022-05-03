@@ -161,135 +161,147 @@ int readfile(char* filename,double* cara) {
 
         if (size_is_correct) {
             // the valid amplitude range for values based on the bits per sample
-                long low_limit = 0l;
-                long high_limit = 0l;
+            long low_limit = 0l;
+            long high_limit = 0l;
 
-                switch (header.bits_per_sample) {
-                    case 8:
-                        low_limit = -128;
-                        high_limit = 127;
-                        break;
-                    case 16:
-                        low_limit = -32768;
-                        high_limit = 32767;
-                        break;
-                    case 32:
-                        low_limit = -2147483648;
-                        high_limit = 2147483647;
-                        break;
-                }
+            switch (header.bits_per_sample) {
+                case 8:
+                    low_limit = -128;
+                    high_limit = 127;
+                    break;
+                case 16:
+                    low_limit = -32768;
+                    high_limit = 32767;
+                    break;
+                case 32:
+                    low_limit = -2147483648;
+                    high_limit = 2147483647;
+                    break;
+            }
 
-                printf("nn.Valid range for data values : %ld to %ld n", low_limit, high_limit);
-                for (i = 1; i <= 10; i++) {
-                    printf("==========Sample %ld / %ld=============n", i, num_samples);
-                    read = fread(data_buffer, sizeof(data_buffer), 1, ptr);
-                    if (read == 1) {
+            printf("nn.Valid range for data values : %ld to %ld n", low_limit, high_limit);
+            // for (i = 1; i <= 10; i++) {
+            //     printf("==========Sample %ld / %ld=============n", i, num_samples);
+            //     read = fread(data_buffer, sizeof(data_buffer), 1, ptr);
+            //     if (read == 1) {
 
-                        // dump the data read
-                        unsigned int xchannels = 0;
-                        int data_in_channel = 0;
-                        int offset = 0; // move the offset for every iteration in the loop below
-                        for (xchannels = 0; xchannels < header.channels; xchannels++) {
-                            printf("Channel#%d : ", (xchannels + 1));
-                            // convert data from little endian to big endian based on bytes in each channel sample
-                            if (bytes_in_each_channel == 4) {
-                                data_in_channel = (data_buffer[offset] & 0x00ff) |
-                                                  ((data_buffer[offset + 1] & 0x00ff) << 8) |
-                                                  ((data_buffer[offset + 2] & 0x00ff) << 16) |
-                                                  (data_buffer[offset + 3] << 24);
-                            } else if (bytes_in_each_channel == 2) {
-                                data_in_channel = (data_buffer[offset] & 0x00ff) |
-                                                  (data_buffer[offset + 1] << 8);
-                            } else if (bytes_in_each_channel == 1) {
-                                data_in_channel = data_buffer[offset] & 0x00ff;
-                                data_in_channel -= 128; //in wave, 8-bit are unsigned, so shifting to signed
-                            }
+            //         // dump the data read
+            //         unsigned int xchannels = 0;
+            //         int data_in_channel = 0;
+            //         int offset = 0; // move the offset for every iteration in the loop below
+            //         for (xchannels = 0; xchannels < header.channels; xchannels++) {
+            //             printf("Channel#%d : ", (xchannels + 1));
+            //             // convert data from little endian to big endian based on bytes in each channel sample
+            //             if (bytes_in_each_channel == 4) {
+            //                 data_in_channel = (data_buffer[offset] & 0x00ff) |
+            //                                   ((data_buffer[offset + 1] & 0x00ff) << 8) |
+            //                                   ((data_buffer[offset + 2] & 0x00ff) << 16) |
+            //                                   (data_buffer[offset + 3] << 24);
+            //             } else if (bytes_in_each_channel == 2) {
+            //                 data_in_channel = (data_buffer[offset] & 0x00ff) |
+            //                                   (data_buffer[offset + 1] << 8);
+            //             } else if (bytes_in_each_channel == 1) {
+            //                 data_in_channel = data_buffer[offset] & 0x00ff;
+            //                 data_in_channel -= 128; //in wave, 8-bit are unsigned, so shifting to signed
+            //             }
 
-                            offset += bytes_in_each_channel;
-                            printf("%d ", data_in_channel);
+            //             offset += bytes_in_each_channel;
+            //             printf("%d ", data_in_channel);
 
-                            // check if value was in range
-                            if (data_in_channel < low_limit || data_in_channel > high_limit)
-                                printf("**value out of rangen");
+            //             // check if value was in range
+            //             if (data_in_channel < low_limit || data_in_channel > high_limit)
+            //                 printf("**value out of rangen");
 
-                            printf(" | ");
+            //             printf(" | ");
+            //         }
+
+            //         printf("n");
+            //     } else {
+            //         printf("Error reading file. %d bytesn", read);
+            //         break;
+            //     }
+
+            // }
+            for (i = 1; i <= num_samples; i++) {
+                read = fread(data_buffer, sizeof(data_buffer), 1, ptr);
+                if (read == 1) {
+
+                    // dump the data read
+                    unsigned int xchannels = 0;
+                    int data_in_channel = 0;
+                    int offset = 0; // move the offset for every iteration in the loop below
+                    for (xchannels = 0; xchannels < 1; xchannels++) {
+                        // convert data from little endian to big endian based on bytes in each channel sample
+                        if (bytes_in_each_channel == 4) {
+                            data_in_channel = (data_buffer[offset] & 0x00ff) |
+                                              ((data_buffer[offset + 1] & 0x00ff) << 8) |
+                                              ((data_buffer[offset + 2] & 0x00ff) << 16) |
+                                              (data_buffer[offset + 3] << 24);
+                        } else if (bytes_in_each_channel == 2) {
+                            data_in_channel = (data_buffer[offset] & 0x00ff) |
+                                              (data_buffer[offset + 1] << 8);
+                        } else if (bytes_in_each_channel == 1) {
+                            data_in_channel = data_buffer[offset] & 0x00ff;
+                            data_in_channel -= 128; //in wave, 8-bit are unsigned, so shifting to signed
                         }
 
-                        printf("n");
-                    } else {
-                        printf("Error reading file. %d bytesn", read);
-                        break;
+                        offset += bytes_in_each_channel;
+                        wav_data[i] = data_in_channel;
+
                     }
 
-                }
-                for (i = 1; i <= num_samples; i++) {
-                    read = fread(data_buffer, sizeof(data_buffer), 1, ptr);
-                    if (read == 1) {
+                } // 	if (size_is_correct) {
 
-                        // dump the data read
-                        unsigned int xchannels = 0;
-                        int data_in_channel = 0;
-                        int offset = 0; // move the offset for every iteration in the loop below
-                        for (xchannels = 0; xchannels < 1; xchannels++) {
-                            // convert data from little endian to big endian based on bytes in each channel sample
-                            if (bytes_in_each_channel == 4) {
-                                data_in_channel = (data_buffer[offset] & 0x00ff) |
-                                                  ((data_buffer[offset + 1] & 0x00ff) << 8) |
-                                                  ((data_buffer[offset + 2] & 0x00ff) << 16) |
-                                                  (data_buffer[offset + 3] << 24);
-                            } else if (bytes_in_each_channel == 2) {
-                                data_in_channel = (data_buffer[offset] & 0x00ff) |
-                                                  (data_buffer[offset + 1] << 8);
-                            } else if (bytes_in_each_channel == 1) {
-                                data_in_channel = data_buffer[offset] & 0x00ff;
-                                data_in_channel -= 128; //in wave, 8-bit are unsigned, so shifting to signed
-                            }
+            } // if (c == 'Y' || c == 'y') {
+        } //  if (header.format_type == 1) {
 
-                            offset += bytes_in_each_channel;
-                            wav_data[i] = data_in_channel;
-
-                        }
-
-                    } // 	if (size_is_correct) {
-
-                } // if (c == 'Y' || c == 'y') {
-            } //  if (header.format_type == 1) {
-
-            printf("Closing file..n");
-            fclose(ptr);
+        printf("Closing file..n");
+        fclose(ptr);
 
 
-            int windowSize = 512;
-            int hop_size = 512;
-            int sample_freq = 22050;
-            int cols = (int) ((num_samples / (windowSize / 2)) );
-            int rows = (int) (windowSize / 2) + 1;
-            double *magnitude = malloc(sizeof(double) * cols * rows);
-            // initialize the magnitude matrix
-            for (int i = 0; i < cols * rows; i++) {
-                magnitude[i] = 0;
-            }
-            stft(&wav_data[0], cols, windowSize, hop_size, &magnitude[0], sample_freq, num_samples);
-            // print first 16 rows of magnitude matrix
-            printf("magnitude ");
-            for (int j = 0; j < 50; j++) {
-                printf("%f: ", magnitude[j]);
-            }
-            printf("\n");
-            getcaract(magnitude, cols, rows, cara);
-            // print first 3 caracteristiques
-            printf("caract ");
-            for(int j = 0; j < 3; j++){
-                printf("%f: ", cara[j]);
-            }
-            printf("\n");
-            // cleanup before quitting
-            free(magnitude);
-            printf("Done.n");
-            return 0;
+        int windowSize = 512;
+        int hop_size = 512;
+        int sample_freq = 22050;
+        int cols = (int) ((num_samples / (windowSize / 2)) );
+        int rows = (int) (windowSize / 2) + 1;
+        //////////////////////////////
+        long int nele = cols * rows;
+
+        printf("n_elements %li \n", nele);
+        printf("windows_size %i \n", windowSize);
+        printf("hop_size %i \n", hop_size);
+        printf("sample freq %i \n", sample_freq);
+        printf("num samples %li \n", num_samples);
+
+        double *magnitude = malloc(sizeof(double) * cols * rows);
+        // initialize the magnitude matrix
+        // for (int i = 0; i < cols * rows; i++) {
+        //     magnitude[i] = 0;
+        // }
+        stft(&wav_data[0], nele, windowSize, hop_size, &magnitude[0], sample_freq, num_samples);
+        // print first 16 rows of magnitude matrix
+        for (int i = 0; i < 3; i++)
+        {
+            printf("wav_data : %f\n", wav_data[i]);
+        }
+        printf("magnitude ");
+        for (int j = 0; j < 3; j++) {
+            printf("%f: ", magnitude[j]);
+        }
+        printf("\n");
+        getcaract(magnitude, cols, rows, cara);
+        // print first 3 caracteristiques
+        printf("caract ");
+        for(int j = 0; j < 3; j++){
+            printf("%f: ", cara[j]);
+        }
+        printf("\n");
+        // cleanup before quitting
+        free(magnitude);
+        printf("Done.n");
+        return 0;
     }
 }
-
 /**
  * Convert seconds into hh:mm:ss format
  * Params:
