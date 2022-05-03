@@ -29,19 +29,19 @@ int main(int argc, char **argv) {
                 readfile(path, cara);
                 // save the data
                 fprintf(csv,"%d, ", g);
-                for (int j = 0; j < 514; j++) {
+                for (int j = 0; j < 513; j++) {
                     fprintf(csv, "%f, ", cara[j]);
                 }
-                fprintf(csv, "\n");
+                fprintf(csv, "%f\n",cara[513]);
             }
             else {
                 sprintf(path, "./%s/%s/%s.000%d.wav",argv[1], genres[g], genres[g], i);
                 readfile(path, cara);
                 fprintf(csv,"%d, ", g);
-                for (int j = 0; j < 512; j++) {
+                for (int j = 0; j < 513; j++) {
                     fprintf(csv, "%f, ", cara[j]);
                 }
-                fprintf(csv, "\n");
+                fprintf(csv, "%f\n",cara[513]);
             }
         }
     }
