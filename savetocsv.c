@@ -19,10 +19,10 @@ int main(int argc, char **argv) {
         return 1;
     }
     // initialize our caracteristics
-    double * cara = malloc(sizeof(double) * 512);
+    double * cara = malloc(sizeof(double) * 515);
 
-    for(int g = 0 ; g < nb_genre ; g++) {
-        for (int i=0 ; i < 100; i++){
+    for(int g = 0 ; g < 1 ; g++) {
+        for (int i=0 ; i < 1; i++){
             char path[1000];
             if (i < 10){
                 sprintf(path, "./%s/%s/%s.0000%d.wav",argv[1], genres[g],genres[g], i);
@@ -39,7 +39,7 @@ int main(int argc, char **argv) {
                 readfile(path, cara);
                 fprintf(csv,"%d", g);
                 for (int j = 0; j < 512; j++) {
-                    fprintf(csv, "%f", cara[j]);
+                    fprintf(csv, "%f, ", cara[j]);
                 }
                 fprintf(csv, "\n");
             }

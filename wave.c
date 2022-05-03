@@ -262,7 +262,7 @@ int readfile(char* filename,double* cara) {
             int windowSize = 512;
             int hop_size = 512;
             int sample_freq = 22050;
-            int cols = (int) ((num_samples / (windowSize / 2)) - 1);
+            int cols = (int) ((num_samples / (windowSize / 2)) );
             int rows = (int) (windowSize / 2) + 1;
             double *magnitude = malloc(sizeof(double) * cols * rows);
             // initialize the magnitude matrix
@@ -270,7 +270,19 @@ int readfile(char* filename,double* cara) {
                 magnitude[i] = 0;
             }
             stft(&wav_data[0], cols, windowSize, hop_size, &magnitude[0], sample_freq, num_samples);
+            // print first 16 rows of magnitude matrix
+            printf("magnitude ");
+            for (int i = 0; i < 16; i++) {
+                printf("%f: ", magnitude[i]);
+            }
+            printf("\n");
             getcaract(magnitude, cols, rows, cara);
+            // print first 3 caracteristiques
+            printf("caract ");
+            for(int j = 0; j < 3; j++){
+                printf("%f: ", cara[j]);
+            }
+            printf('\n');
             // cleanup before quitting
             free(magnitude);
             printf("Done.n");
