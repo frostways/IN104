@@ -12,12 +12,12 @@ void getcaract(double * table, int c, int l,double* cara) {
         moy = 0;
         ecart = 0;
         for (int j = 0; j < c; j++) {
-            moy += table[i*c+j];
+            moy += table[i+j*l];
         }
         moy = moy/c;
         cara[2*i] = moy;
         for (int j = 0; j < c; j++) {
-            ecart += pow(table[i*c+j]-moy,2);
+            ecart += pow(table[i+j*l]-moy,2);
         }
         ecart = sqrt(ecart/c);
         cara[2*i+1] = ecart;

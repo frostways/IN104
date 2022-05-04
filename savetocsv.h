@@ -4,5 +4,5 @@
 
 #ifndef IN104_SAVETOCSV_H
 #define IN104_SAVETOCSV_H
-
+int savetocsv();
 #endif //IN104_SAVETOCSV_H

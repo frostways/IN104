@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/applySVM.c
+stdio.h
+-
+stdlib.h
+-
+wave.h
+/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/wave.h
+
 /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/savetocsv.c
 wave.h
 /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/wave.h

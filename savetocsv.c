@@ -5,10 +5,9 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 const char *itoa(int i, int i1);
 
-int main(int argc, char **argv) {
+int savetocsv() {
     char * genres[10] = {"blues", "classical", "country", "disco", "hiphop", "jazz", "metal", "pop", "reggae", "rock"};
     int nb_genre = 10;
 
@@ -25,7 +24,7 @@ int main(int argc, char **argv) {
         for (int i=0 ; i < 100; i++){
             char path[1000];
             if (i < 10){
-                sprintf(path, "./%s/%s/%s.0000%d.wav",argv[1], genres[g],genres[g], i);
+                sprintf(path, "./genres/%s/%s.0000%d.wav", genres[g],genres[g], i);
                 readfile(path, cara);
                 // save the data
                 fprintf(csv,"%d, ", g);
@@ -35,7 +34,7 @@ int main(int argc, char **argv) {
                 fprintf(csv, "%f\n",cara[513]);
             }
             else {
-                sprintf(path, "./%s/%s/%s.000%d.wav",argv[1], genres[g], genres[g], i);
+                sprintf(path, "./genres/%s/%s.000%d.wav", genres[g], genres[g], i);
                 readfile(path, cara);
                 fprintf(csv,"%d, ", g);
                 for (int j = 0; j < 513; j++) {

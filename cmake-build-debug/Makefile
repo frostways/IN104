@@ -123,6 +123,33 @@ IN104/fast:
 	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/build
 .PHONY : IN104/fast
 
+applySVM.o: applySVM.c.o
+
+.PHONY : applySVM.o
+
+# target to build an object file
+applySVM.c.o:
+	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/applySVM.c.o
+.PHONY : applySVM.c.o
+
+applySVM.i: applySVM.c.i
+
+.PHONY : applySVM.i
+
+# target to preprocess a source file
+applySVM.c.i:
+	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/applySVM.c.i
+.PHONY : applySVM.c.i
+
+applySVM.s: applySVM.c.s
+
+.PHONY : applySVM.s
+
+# target to generate assembly for a file
+applySVM.c.s:
+	$(MAKE) -f CMakeFiles/IN104.dir/build.make CMakeFiles/IN104.dir/applySVM.c.s
+.PHONY : applySVM.c.s
+
 savetocsv.o: savetocsv.c.o
 
 .PHONY : savetocsv.o
@@ -240,6 +267,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... IN104"
+	@echo "... applySVM.o"
+	@echo "... applySVM.i"
+	@echo "... applySVM.s"
 	@echo "... savetocsv.o"
 	@echo "... savetocsv.i"
 	@echo "... savetocsv.s"
