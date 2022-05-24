@@ -8,6 +8,7 @@
 #define PI 3.14159265
 
 double hamming(int windowLength, double *buffer){
+    // on utilise fenetre de hamming
   for(int i=0; i<windowLength; i++){
     buffer[i] = 0.54 - 0.46*cos((2*PI*i)/(windowLength-1.0));
   }

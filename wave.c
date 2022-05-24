@@ -180,48 +180,7 @@ int readfile(char* filename,double* cara) {
             }
 
             printf("nn.Valid range for data values : %ld to %ld n", low_limit, high_limit);
-            // for (i = 1; i <= 10; i++) {
-            //     printf("==========Sample %ld / %ld=============n", i, num_samples);
-            //     read = fread(data_buffer, sizeof(data_buffer), 1, ptr);
-            //     if (read == 1) {
 
-            //         // dump the data read
-            //         unsigned int xchannels = 0;
-            //         int data_in_channel = 0;
-            //         int offset = 0; // move the offset for every iteration in the loop below
-            //         for (xchannels = 0; xchannels < header.channels; xchannels++) {
-            //             printf("Channel#%d : ", (xchannels + 1));
-            //             // convert data from little endian to big endian based on bytes in each channel sample
-            //             if (bytes_in_each_channel == 4) {
-            //                 data_in_channel = (data_buffer[offset] & 0x00ff) |
-            //                                   ((data_buffer[offset + 1] & 0x00ff) << 8) |
-            //                                   ((data_buffer[offset + 2] & 0x00ff) << 16) |
-            //                                   (data_buffer[offset + 3] << 24);
-            //             } else if (bytes_in_each_channel == 2) {
-            //                 data_in_channel = (data_buffer[offset] & 0x00ff) |
-            //                                   (data_buffer[offset + 1] << 8);
-            //             } else if (bytes_in_each_channel == 1) {
-            //                 data_in_channel = data_buffer[offset] & 0x00ff;
-            //                 data_in_channel -= 128; //in wave, 8-bit are unsigned, so shifting to signed
-            //             }
-
-            //             offset += bytes_in_each_channel;
-            //             printf("%d ", data_in_channel);
-
-            //             // check if value was in range
-            //             if (data_in_channel < low_limit || data_in_channel > high_limit)
-            //                 printf("**value out of rangen");
-
-            //             printf(" | ");
-            //         }
-
-            //         printf("n");
-            //     } else {
-            //         printf("Error reading file. %d bytesn", read);
-            //         break;
-            //     }
-
-            // }
             for (i = 1; i <= num_samples; i++) {
                 read = fread(data_buffer, sizeof(data_buffer), 1, ptr);
                 if (read == 1) {

@@ -4,6 +4,7 @@
 
 
 int applySVM(float ** W,float * b,float * x){
+    //  dimension de W et b sont fixee, y = WX+b
     int xDim =514;
     int bDim = 10;
     float y[10] = {0};
@@ -23,6 +24,7 @@ int applySVM(float ** W,float * b,float * x){
 }
 
 int main(int argc, char** argv ){
+    // on lit notre parametre W et b, et aussi x
     float ** W = (float **)malloc(10*sizeof(float *));
     for (int i = 0; i < 10; i++) {
         W[i] = (float *)malloc(514*sizeof(float));
@@ -45,6 +47,7 @@ int main(int argc, char** argv ){
     for (int i = 0; i < 514; i++) {
         fscanf(fp,"%f",&x[i]);
     }
+    // on fait la prediction et montre le resultat
     int index = applySVM(W,b,x);
     char * genres[10] = {"blues", "classical", "country", "disco", "hiphop", "jazz", "metal", "pop", "reggae", "rock"};
     printf("\nLe son est de type: %s\n",genres[index]);
