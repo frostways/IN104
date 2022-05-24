@@ -24,4 +24,4 @@ On voit sur ecreen
 
 c'est un "end-to-end" model pour la prediction de type du model.
 
-De plus, les autres type de ml-model sont sur "models.py". Ici on utlise juste SVMlinear pour faire une prediction en C. 
+De plus, les autres type de ml-model sont sur "./cmake-build-debug/model.py". Ici on utlise juste SVMlinear pour faire une prediction en C. 
