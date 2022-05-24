@@ -4,7 +4,7 @@
 
 
 int applySVM(float ** W,float * b,float * x){
-    //  dimension de W et b sont fixee, y = WX+b
+    //  dimension de W et b sont fixes, y = WX+b
     int xDim =514;
     int bDim = 10;
     float y[10] = {0};
