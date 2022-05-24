@@ -4,9 +4,7 @@ Etape pour utilise ces fichiers
 + make
 + ./IN104 [path of the voice you make to predict]
 
-Par exemple, ici on peut ecrire 
-
-"./In104 ./cmake-build-debug/genres/blues/blues.00022wav"
+Par exemple, apres avoir telecharge tous les sons dans fichie "genres" ici on peut ecrire "./In104 ./genres/blues/blues.00022wav"
 
 On voit sur ecreen 
 	windows_size 512
@@ -24,4 +22,4 @@ On voit sur ecreen
 
 c'est un "end-to-end" model pour la prediction de type du model.
 
-De plus, les autres type de ml-model sont sur "models.py". Ici on utlise juste SVMlinear pour faire une prediction en C. 
+De plus, les autres type de ml-model sont sur "model.py". Ici on utlise juste SVMlinear pour faire une prediction en C. 

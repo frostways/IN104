@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
+  "../IN104"
+  "../IN104.pdb"
   "CMakeFiles/IN104.dir/applySVM.c.o"
   "CMakeFiles/IN104.dir/savetocsv.c.o"
   "CMakeFiles/IN104.dir/stft.c.o"
   "CMakeFiles/IN104.dir/utiles.c.o"
   "CMakeFiles/IN104.dir/wave.c.o"
-  "IN104"
-  "IN104.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -14,7 +14,35 @@ stdlib.h
 wave.h
 /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/wave.h
 
+/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/savetocsv.c
+wave.h
+/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/wave.h
+string.h
+-
+stdio.h
+-
+stdlib.h
+-
+
+/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/stft.c
+stdio.h
+-
+complex.h
+-
+fftw3.h
+-
+math.h
+-
+
 /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/stft.h
+
+/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/utiles.c
+utiles.h
+/mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/utiles.h
+math.h
+-
+stdio.h
+-
 
 /mnt/c/Users/59605/Desktop/ensta/im104ok/IN104/utiles.h
 
