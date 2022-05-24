@@ -11,19 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7bf68eee-98b7-4fce-a3be-427ef224d5d1" name="Changes" comment="all finished project">
-      <change afterPath="$PROJECT_DIR$/CMakeCache.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IN104" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake_install.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ensoniq-ZR-76-03-Dope-85.wav" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/applySVM.c" beforeDir="false" afterPath="$PROJECT_DIR$/applySVM.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/descriptif.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/wave.c" beforeDir="false" afterPath="$PROJECT_DIR$/wave.c" afterDir="false" />
-    </list>
+    <list default="true" id="7bf68eee-98b7-4fce-a3be-427ef224d5d1" name="Changes" comment="add readme.txt" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -273,7 +261,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653396619555</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="add readme.txt">
+      <created>1653400007595</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1653400007595</updated>
+    </task>
+    <task id="LOCAL-00018" summary="add readme.txt">
+      <created>1653400044128</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1653400044128</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +302,8 @@
     <MESSAGE value="new wave.c and utile.c (save to csv)" />
     <MESSAGE value="save correctly the data to csv" />
     <MESSAGE value="all finished project" />
-    <option name="LAST_COMMIT_MESSAGE" value="all finished project" />
+    <MESSAGE value="add readme.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="add readme.txt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
