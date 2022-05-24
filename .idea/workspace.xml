@@ -11,26 +11,18 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96d8b311-3fc4-4529-ae51-9d5193978b4b" name="Changes" comment="save correctly the data to csv">
-      <change afterPath="$PROJECT_DIR$/applySVM.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/applySVM.h" afterDir="false" />
+    <list default="true" id="7bf68eee-98b7-4fce-a3be-427ef224d5d1" name="Changes" comment="all finished project">
+      <change afterPath="$PROJECT_DIR$/CMakeCache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/IN104" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cmake_install.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/C.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/C.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/IN104.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/IN104.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/IN104.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ensoniq-ZR-76-03-Dope-85.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/applySVM.c" beforeDir="false" afterPath="$PROJECT_DIR$/applySVM.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savetocsv.c" beforeDir="false" afterPath="$PROJECT_DIR$/savetocsv.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savetocsv.h" beforeDir="false" afterPath="$PROJECT_DIR$/savetocsv.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/descriptif.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/wave.c" beforeDir="false" afterPath="$PROJECT_DIR$/wave.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,14 +76,14 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="IN104" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="pred.wav" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="IN104" TARGET_NAME="IN104" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="IN104" RUN_TARGET_NAME="IN104">
+    <configuration name="IN104" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="genres/blues/blues.00022.wav" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="IN104" TARGET_NAME="IN104" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="IN104" RUN_TARGET_NAME="IN104">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
@@ -260,7 +252,28 @@
       <option name="project" value="LOCAL" />
       <updated>1651647369169</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="all finished project">
+      <created>1653396539852</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1653396539852</updated>
+    </task>
+    <task id="LOCAL-00015" summary="all finished project">
+      <created>1653396566644</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1653396566644</updated>
+    </task>
+    <task id="LOCAL-00016" summary="all finished project">
+      <created>1653396619555</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1653396619555</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -286,7 +299,8 @@
     <MESSAGE value="right magnitude mais wrong cara" />
     <MESSAGE value="new wave.c and utile.c (save to csv)" />
     <MESSAGE value="save correctly the data to csv" />
-    <option name="LAST_COMMIT_MESSAGE" value="save correctly the data to csv" />
+    <MESSAGE value="all finished project" />
+    <option name="LAST_COMMIT_MESSAGE" value="all finished project" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -295,6 +309,11 @@
           <url>file://$PROJECT_DIR$/wave.c</url>
           <line>292</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/wave.c</url>
+          <line>17</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

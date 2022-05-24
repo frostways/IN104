@@ -4,7 +4,7 @@
 
 
 int applySVM(float ** W,float * b,float * x){
-    //  dimension de W et b sont fixee, y = WX+b
+    //  dimension de W et b sont fixes, y = WX+b
     int xDim =514;
     int bDim = 10;
     float y[10] = {0};
@@ -32,6 +32,10 @@ int main(int argc, char** argv ){
     float * b = (float *)malloc(10*sizeof(float));
     float * x = (float *)malloc(514*sizeof(float));
     FILE * fp = fopen("w.csv","r");
+    if (fp == NULL) {
+        printf("Error opening w.csv");
+        exit(1);
+    }
     for (int i = 0; i < 10; i++) {
         for (int j = 0; j < 514; j++) {
             fscanf(fp,"%f",&W[i][j]);
@@ -39,6 +43,10 @@ int main(int argc, char** argv ){
     }
     fclose(fp);
     FILE * fp2 = fopen("b.csv","r");
+    if (fp2 == NULL) {
+        printf("Error opening b.csv");
+        exit(1);
+    }
     for (int i = 0; i < 10; i++) {
         fscanf(fp,"%f",&b[i]);
     }

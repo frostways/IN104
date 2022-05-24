@@ -28,7 +28,7 @@ int readfile(char* filename,double* cara) {
     printf("Opening  file..n");
     ptr = fopen(filename, "rb");
     if (ptr == NULL) {
-        printf("Error opening filen");
+        printf("Error opening file of voice");
         exit(1);
     }
 
